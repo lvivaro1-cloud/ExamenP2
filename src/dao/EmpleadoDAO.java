@@ -16,19 +16,19 @@ import java.util.List;
 
     public List<Empleado> obtenerTodos() {
         List<Empleado> lista = new ArrayList<>();
-        String sql = "SELECT ......";
+        String sql = "SELECT * FROM TABLE";
 
         try (Connection conn = connFactory.Get la conexion ();
              PreparedStatement ps = conn.PreparedStatement(ColocaMiQuery);
-             ResultSet rs = ps.ejecutaConsulta ) {
+             ResultSet rs = ps.executequery ) {
 
             while (rs siguiente) {
                 Empleado emp = .......
                 lista.add(emp);
             }
-            cerrar Prepared;
-            Cerrar Conexion  ;
-        } captura (Excepcion e) {
+            cerrar PreparedStament;
+            Cerrar Connection  ;
+        } catch (Excepcion e) {
             e.printStackTrace();
         }
 
@@ -36,15 +36,22 @@ import java.util.List;
     }
 
     public boolean guardar(Empleado emp) {
-        String sql = "INSERT INTO tabla (campos) VALUES (? ....)";
+        String sql = "INSERT INTO tabla (campos) VALUES (?,?,?,?,?,?,?,?,?)";
 
         try (
             Connection conn = connFactory.Get la conexion ();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, emp.ObtenerNombre());
+            ps.setString (2, emp.ObtenerNombre());
+            ps.setString (3, emp.Obtenerautor);
+            ps.setInt (4, emp.ObtenerAnio);
+            ps.setInt (5, emp.Obtenerpaginas);
+            ps.setString (6, emp.Obtenergenero);
+            ps.setString (7, emp.Obtenereditorial);
+            ps.setString  (8, emp.Obteneridioma);
+            ps.setInt  (9, emp.Obtenercarnet)
          
 
-            ps.ExecutaQueryPorFavor();
+            ps.Executequery();
            
            Cerrar Conexion PS
             Cerrar la conexion general

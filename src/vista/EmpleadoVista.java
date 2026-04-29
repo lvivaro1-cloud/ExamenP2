@@ -48,6 +48,12 @@ public class EmpleadoVista extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txt_autor = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        btn_Insertar = new javax.swing.JButton();
+        btn_Actualizar = new javax.swing.JButton();
+        btn_Buscar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,11 +111,42 @@ public class EmpleadoVista extends javax.swing.JFrame {
 
         jLabel11.setText("Stock");
 
+        btn_Insertar.setText("Insertar");
+
+        btn_Actualizar.setText("Actualizar");
+
+        btn_Buscar.setText("Buscar");
+        btn_Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarActionPerformed(evt);
+            }
+        });
+
+        btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -123,11 +160,12 @@ public class EmpleadoVista extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(jLabel11)
+                    .addComponent(btn_Insertar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txt_carne, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                        .addComponent(txt_carne, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                         .addComponent(txt_idioma)
                         .addComponent(txt_descripcion)
                         .addComponent(txt_editorial)
@@ -136,9 +174,19 @@ public class EmpleadoVista extends javax.swing.JFrame {
                         .addComponent(txt_anio)
                         .addComponent(txt_titulo)
                         .addComponent(txt_id)
-                        .addComponent(txt_autor))
-                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(255, 255, 255))
+                        .addComponent(txt_autor)
+                        .addComponent(txt_cantidad))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_Buscar)
+                        .addGap(88, 88, 88)
+                        .addComponent(btn_Actualizar)))
+                .addGap(9, 9, 9)
+                .addComponent(btn_eliminar)
+                .addGap(171, 171, 171))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +239,15 @@ public class EmpleadoVista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Insertar)
+                    .addComponent(btn_eliminar)
+                    .addComponent(btn_Buscar)
+                    .addComponent(btn_Actualizar))
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         pack();
@@ -216,6 +272,14 @@ public class EmpleadoVista extends javax.swing.JFrame {
     private void txt_idiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idiomaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_idiomaActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,6 +317,10 @@ public class EmpleadoVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Actualizar;
+    private javax.swing.JButton btn_Buscar;
+    private javax.swing.JButton btn_Insertar;
+    private javax.swing.JButton btn_eliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -264,6 +332,8 @@ public class EmpleadoVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField txt_anio;
     private javax.swing.JTextField txt_autor;
     private javax.swing.JTextField txt_cantidad;
